@@ -1,3 +1,25 @@
+"""
+ideal.py
+========
+
+The functions in this module assume ideal gas behavior and isentropic,
+adiabatic flow through a converging-diverging nozzle. They accept scalars or
+NumPy arrays as inputs in standard SI Units:
+
+- gamma (ratio of specific heats) must be > 1 and < 1.8
+- Pressure ratios must be in [0, 1)
+- Nozzle area ratio must be >= 1
+- Stagnation temperature must be > 0
+- Specific gas constant must be > 0
+
+Functions
+---------
+
+- :func:`solve_cstar` - Computes the characteristic velocity (c*) for a given gas.
+- :func:`solve_cf` - Computes the thrust coefficient (C_f) for a choked nozzle.
+
+"""
+
 import numpy as np
 
 def solve_cstar(gamma, Rs, T0):
