@@ -100,9 +100,9 @@ def solve_cf(gamma, ratio_pe_p0, ratio_pa_p0, ratio_Ae_Astar):
     if np.any(ratio_Ae_Astar < 1):
         raise ValueError("ratio_Ae_Astar must be >= 1")
 
-    return np.sqrt(
+    cf = np.sqrt(
         (2 * gamma**2 / (gamma - 1))
         * (2 / (gamma + 1)) ** ((gamma + 1) / (gamma - 1))
         * (1 - ratio_pe_p0 ** ((gamma - 1) / gamma))
-        + (ratio_pe_p0 - ratio_pa_p0) * ratio_Ae_Astar
-    )
+    )   + (ratio_pe_p0 - ratio_pa_p0) * ratio_Ae_Astar
+    return cf
